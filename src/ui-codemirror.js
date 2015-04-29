@@ -61,6 +61,10 @@ function uiCodemirrorDirective($timeout, uiCodemirrorConfig) {
     if (angular.isFunction(codemirrorOptions.onLoad)) {
       codemirrorOptions.onLoad(codemirror);
     }
+    
+    setTimeout(function () {
+      codemirror.doc.setValue(ngModel.$viewValue);
+    }, 2000);
   }
 
   function newCodemirrorEditor(iElement, codemirrorOptions) {
